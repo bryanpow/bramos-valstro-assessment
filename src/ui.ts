@@ -62,7 +62,6 @@ export const printBanner = (url: string): void => {
 
   const titleText = "Character Search CLI";
   const connText = `Connected to ${url}`;
-  const desc1 = "Which character would you like to find?";
   const desc2 = "Enter a full or partial name, then press Enter.";
   const desc3 = 'e.g. "luke", "darth", "sky", "leia"';
   const exitText = "Press Ctrl+C to exit.";
@@ -78,7 +77,6 @@ export const printBanner = (url: string): void => {
   console.log(chalk.yellow(boxLine(chalk.bold.white(titleText), titleText.length, "║")));
   console.log(chalk.yellow(boxLine(chalk.dim(connText), connText.length, "║")));
   console.log(chalk.yellow(`  ╠${hDiv}╣`));
-  console.log(chalk.yellow(boxLine(desc1, desc1.length, "║")));
   console.log(chalk.yellow(boxLine(desc2, desc2.length, "║")));
   console.log(chalk.yellow(boxLine(chalk.dim(desc3), desc3.length, "║")));
   console.log(chalk.yellow(boxLine("", 0, "║")));
