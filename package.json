@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "chalk": "^4.1.2",
     "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
