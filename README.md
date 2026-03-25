@@ -51,7 +51,7 @@ src/
 
 ### App flow
 
-https://github.com/user-attachments/assets/604e8787-c8c5-4d76-be41-ffb4f6b48e69
+https://github.com/user-attachments/assets/e1d5e730-0f24-4042-97fa-afe998f277d4
 
 
 Connect once, then loop: **prompt → search → print streamed results → summary → prompt again**.
