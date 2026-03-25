@@ -1,4 +1,5 @@
 import { EventEmitter } from "events";
+import { SEARCH_TIMEOUT_MS } from "../config";
 import { searchCharacters } from "./searchCharacters";
 import { isError, SearchResult, SearchError } from "../types";
 
@@ -142,7 +143,7 @@ describe("searchCharacters", () => {
 
     const promise = searchCharacters(fake as never, "luke");
 
-    jest.advanceTimersByTime(30_000);
+    jest.advanceTimersByTime(SEARCH_TIMEOUT_MS);
 
     await expect(promise).rejects.toThrow(
       "Search timed out (no response from server)",
@@ -172,7 +173,7 @@ describe("searchCharacters", () => {
     const promise = searchCharacters(fake as never, "dar");
 
     jest.advanceTimersByTime(10);
-    jest.advanceTimersByTime(30_000);
+    jest.advanceTimersByTime(SEARCH_TIMEOUT_MS);
 
     await expect(promise).rejects.toThrow(
       "received 1 result before server stopped responding",
