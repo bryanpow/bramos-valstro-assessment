@@ -70,7 +70,7 @@ flowchart TD
   G --> D
 ```
 
- The diagram above shows the happy path. The client also uses an **idle timeout** (if the server stops sending chunks), rejects on **disconnect mid-search**; in those cases the current search fails with a message and you can **prompt again** without restarting the app.
+ The diagram above shows the happy path. The client also uses an **idle timeout** (if the server stops sending chunks), rejects on **disconnect mid-search**; in those cases the current search fails with a message.
 
 **Tests:** `socket/searchCharacters.test.ts` uses a fake `EventEmitter` socket.
 
