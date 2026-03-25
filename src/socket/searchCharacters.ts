@@ -35,10 +35,10 @@ export const searchCharacters = (
       }, SEARCH_TIMEOUT_MS);
     };
 
-    const onBackendSearchResponse = (...args: unknown[]) => {
-      const responseRow = args[0] as SearchResponse;
+    const onBackendSearchResponse = (payload: unknown) => {
+      const responseRow = payload as SearchResponse;
       if (!responseRow || typeof responseRow.page === "undefined") {
-        console.error("  Unexpected response shape:", args);
+        console.error("  Unexpected response shape:", payload);
         cleanup();
         reject(new Error("Unexpected response from server"));
         return;
