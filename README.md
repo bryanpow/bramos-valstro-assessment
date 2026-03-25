@@ -1,6 +1,6 @@
 # Star Wars Character Search CLI
 
-TypeScript CLI for the Valstro assessment: a Socket.IO client that searches Star Wars characters by name and prints streamed results.
+TypeScript CLI for the Valstro assessment: a Socket.IO client that searches Star Wars characters by name and prints streamed results. It also includes a wikipedia link for each found character to get more info.
 
 ## Getting started
 
@@ -23,10 +23,12 @@ npm start
 
 **Other commands:**
 
-| Command | Description |
-|---------|-------------|
+
+| Command         | Description                   |
+| --------------- | ----------------------------- |
 | `npm run build` | Compile TypeScript to `dist/` |
-| `npm test` | Run unit tests |
+| `npm test`      | Run unit tests                |
+
 
 ---
 
@@ -45,6 +47,23 @@ src/
     index.ts        # public exports for the socket layer
   ui.ts             # console output (banner, prompts, result cards, errors)
 ```
+
+### App flow
+
+Connect once, then loop: **prompt → search → print streamed results → summary → prompt again**.
+```mermaid
+flowchart TD
+  A[Start CLI] --> B[Connect to Socket.IO server]
+  B --> C{Connected?}
+  C -->|No| Z[Show error and exit]
+  C -->|Yes| D[Prompt for a character name]
+  D --> E[Send search value to server]
+  E --> F[Print each result as chunks arrive]
+  F --> G[Show result count]
+  G --> D
+```
+
+ The diagram above shows the happy path. The client also uses an **idle timeout** (if the server stops sending chunks), rejects on **disconnect mid-search**; in those cases the current search fails with a message and you can **prompt again** without restarting the app.
 
 **Tests:** `socket/searchCharacters.test.ts` uses a fake `EventEmitter` socket.
 
