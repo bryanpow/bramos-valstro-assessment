@@ -50,6 +50,9 @@ src/
 
 ### App flow
 
+https://github.com/user-attachments/assets/604e8787-c8c5-4d76-be41-ffb4f6b48e69
+
+
 Connect once, then loop: **prompt → search → print streamed results → summary → prompt again**.
 ```mermaid
 flowchart TD
