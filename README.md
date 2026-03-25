@@ -4,7 +4,7 @@ TypeScript CLI for the Valstro assessment: a Socket.IO client that searches Star
 
 ## Getting started
 
-**Prerequisites:** Node.js 18+ and Docker.
+**Prerequisites:** Node.js 18+ and **Docker** installed with the **engine running** (e.g. **Docker Desktop** on macOS/Windows, or Docker Engine on Linux).
 
 **1. Start the backend server** (leave it running):
 
@@ -12,7 +12,7 @@ TypeScript CLI for the Valstro assessment: a Socket.IO client that searches Star
 docker run -p 3000:3000 aaronbate/socketio-backend
 ```
 
-**2. Install and run the client** (separate terminal). Make sure your in the **project root**, and run:
+**2. Install and run the client** (separate terminal). From the **project root**, run:
 
 ```bash
 npm install
